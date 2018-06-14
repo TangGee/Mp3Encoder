@@ -31,13 +31,12 @@ extern "C" JNIEXPORT void JNICALL
 extern "C" JNIEXPORT long JNICALL
 Java_com_yumin_mp3encoder_Mp3Encoder_nativeInit(JNIEnv* env,
                                                  jobject /* this */){
-    LOGD("Mp3Encoder init");
     Mp3Encoder* nativeMp3Encoder = new Mp3Encoder;
     return reinterpret_cast<jlong >(nativeMp3Encoder);
 }
 
 extern "C" JNIEXPORT void JNICALL
-Java_com_yumin_mp3encoder_Mp3Encoder_nativeDestory(JNIEnv* env,
+Java_com_yumin_mp3encoder_Mp3Encoder_nativeEndEncod(JNIEnv* env,
                                                     jobject jobj){
     Mp3Encoder*  mp3Encoder = getNativeMp3Encoder(env,jobj);
     mp3Encoder->destory();
@@ -57,7 +56,6 @@ Java_com_yumin_mp3encoder_Mp3Encoder_encodeInit(JNIEnv* env,
     mp3Encoder->init(pcmFilePath,outMp3Path,sampleRate,channels,ratebit);
     env->ReleaseStringUTFChars(jpcmFilePath,pcmFilePath);
     env->ReleaseStringUTFChars(joutMp3Path,outMp3Path);
-
 }
 
 extern "C" JNIEXPORT void JNICALL
@@ -65,6 +63,12 @@ Java_com_yumin_mp3encoder_Mp3Encoder_initIds(JNIEnv* env, jclass cls){
     FIELD_ID_Mp3Encoder_nativeObj = env->GetFieldID(cls,"nativeObj","J");
 }
 
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_yumin_mp3encoder_Mp3Encoder_nativeDestory(JNIEnv* env, jobject jobj){
+    Mp3Encoder*  mp3Encoder = getNativeMp3Encoder(env,jobj);
+    delete mp3Encoder;
+}
 
 
 

@@ -7,7 +7,6 @@ import android.os.AsyncTask;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,6 +14,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView tv;
     private SharedPreferences preferences;
     private boolean isFirstStart = true;
+    private boolean requestPermissioning = false;
 
     private Mp3Encoder encoder;
     private String pcmPath;
@@ -51,12 +53,30 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        requestPermissions(requestPermissions,REQUEST_PERMISSION_CODE);
+        setup();
+    }
+
+    private void setup(){
+        if (!requestPermissioning) {
+            List<String> needRequest = new ArrayList<>();
+            for (String permission :requestPermissions) {
+                if(checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                    needRequest.add(permission);
+                }
+            }
+
+            if (needRequest.size()>0) {
+                requestPermissions((String[]) needRequest.toArray(),REQUEST_PERMISSION_CODE);
+                requestPermissioning = true;
+            } else {
+                init();
+            }
+        }
+
     }
 
     private void init(){
-        Log.e("AAAA","xxx",new Throwable());
-        if (isFirstStart) {
+        if (!isFirstStart) {
             encoder = new Mp3Encoder();
             tv.setEnabled(true);
             tv.setOnClickListener(new View.OnClickListener() {
@@ -70,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                             File mp3File = new File(mp3Path);
                             if (mp3File.exists()) mp3File.delete();
                             File pcmFile = new File(pcmPath);
-                            if (mp3Path==null || !pcmFile.exists() || pcmFile.isDirectory()) {
+                            if (!pcmFile.exists() || pcmFile.isDirectory()) {
                                 backgroundInit();
                             }
                             encoder.encodeInit(pcmPath,mp3Path, AUDIO_SAMPLE_RATE,2,2);
@@ -81,9 +101,9 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         protected void onPostExecute(Void aVoid) {
                             super.onPostExecute(aVoid);
-                            encoder.nativeDestory();
+                            encoder.nativeEndEncod();//多线程问题
                         }
-                    };
+                    }.execute();
                 }
             });
 
@@ -107,11 +127,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void backgroundInit() {
+        int length;
+        byte[] buffer = new byte[1024];
+        InputStream in =null;
+        FileOutputStream outputStream = null;
+
         try {
-            int length;
-            byte[] buffer = new byte[1024];
-            InputStream in = getAssets().open("16k.pcm");
-            FileOutputStream outputStream = new FileOutputStream(new File(getFilesDir(),"16k.pcm"));
+            in = getAssets().open("16k.pcm");
+            outputStream = new FileOutputStream(new File(getFilesDir(),"16k.pcm"));
             while(( length = in.read(buffer))>0){
                 outputStream.write(buffer,0,length);
             }
@@ -119,6 +142,9 @@ public class MainActivity extends AppCompatActivity {
             preferences.edit().putBoolean("isFirst_start",false).apply();
         } catch (IOException e) {
             finish();
+        } finally {
+            IOUtils.closeQuietly(in);
+            IOUtils.closeQuietly(outputStream);
         }
     }
 
@@ -128,14 +154,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (REQUEST_PERMISSION_CODE == requestCode) {
             for (int i = 0; i < grantResults.length ; i++) {
-                Log.e("AAAA",permissions[i]);
                 if (grantResults[i]!= PackageManager.PERMISSION_GRANTED) {
                     finish();
                     return;
                 }
             }
             init();
+            requestPermissioning = false;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //注意这里析构的话可能引起问题，应该native层只能指针进行处理，活着使用 AsyncTask，而是使用WorkHandler
+        //线程封闭技术在一个线程中操作encoder，或者想办法中断操作。 要想完全正确处理，对于jni编程还是一个挑战
+        if (encoder!=null) encoder.nativeDestory();
     }
 
     /**

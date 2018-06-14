@@ -15,11 +15,13 @@ public class Mp3Encoder {
 
     public native void encod();
 
-    public native void nativeDestory();
+    public native void nativeEndEncod();
 
     public Mp3Encoder(){
         nativeObj = nativeInit();
     }
 
     private static native void initIds();
+
+    public native void nativeDestory();
 }

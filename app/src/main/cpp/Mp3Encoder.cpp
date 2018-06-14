@@ -16,7 +16,7 @@ int Mp3Encoder::init(const char *pcmFilePath, const char *mp3OutPath, int sample
 
     pcmFile = fopen(pcmFilePath,"r");
     if (!pcmFile) return  -1;
-    mp3File = fopen(mp3OutPath,"rw");
+    mp3File = fopen(mp3OutPath,"w+");
     if (!mp3File) return -1;
 
     lameClient = lame_init();
