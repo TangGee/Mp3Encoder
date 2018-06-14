@@ -17,6 +17,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
+// 注意这知识个demo 正常情况应该把界面和业务分离
 public class MainActivity extends AppCompatActivity {
 
     private final static int AUDIO_SAMPLE_RATE = 16000;
@@ -167,9 +169,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //注意这里析构的话可能引起问题，应该native层只能指针进行处理，活着使用 AsyncTask，而是使用WorkHandler
-        //线程封闭技术在一个线程中操作encoder，或者想办法中断操作。 要想完全正确处理，对于jni编程还是一个挑战
-        if (encoder!=null) encoder.nativeDestory();
     }
 
     /**

@@ -24,4 +24,10 @@ public class Mp3Encoder {
     private static native void initIds();
 
     public native void nativeDestory();
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        nativeDestory();
+    }
 }
