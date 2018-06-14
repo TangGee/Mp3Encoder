@@ -1,0 +1,123 @@
+libSYS/src/cmdl_parser.lo: libSYS/src/cmdl_parser.cpp \
+ /private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stdarg.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdio.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/cdefs.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/api-level.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/versioning.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/types.h \
+ /private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stddef.h \
+ /private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stdint.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdint.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/wchar_limits.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/int-ll64.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/bitsperlong.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/bitsperlong.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/posix_types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/stddef.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/compiler_types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/compiler.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/posix_types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/posix_types_64.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/posix_types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/pthread_types.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/seek_constants.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/string.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/xlocale.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/strcasecmp.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/strings.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/legacy_strings_inlines.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdlib.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/alloca.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/wait.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/wait.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/malloc.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/legacy_stdlib_inlines.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/ctype.h \
+ libSYS/include/cmdl_parser.h libSYS/include/machine_type.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/assert.h \
+ libSYS/include/genericStds.h
+
+/private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stdarg.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdio.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/cdefs.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/api-level.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/versioning.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/types.h:
+
+/private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stddef.h:
+
+/private/tmp/x86_64-android-toolchain/lib/gcc/x86_64-linux-android/4.9.x/include/stdint.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdint.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/wchar_limits.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/int-ll64.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/bitsperlong.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/bitsperlong.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/posix_types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/stddef.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/compiler_types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/compiler.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/posix_types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm/posix_types_64.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/asm-generic/posix_types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/pthread_types.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/seek_constants.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/string.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/xlocale.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/strcasecmp.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/strings.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/legacy_strings_inlines.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/stdlib.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/alloca.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/bits/wait.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/linux/wait.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/malloc.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/legacy_stdlib_inlines.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/ctype.h:
+
+libSYS/include/cmdl_parser.h:
+
+libSYS/include/machine_type.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/assert.h:
+
+libSYS/include/genericStds.h:

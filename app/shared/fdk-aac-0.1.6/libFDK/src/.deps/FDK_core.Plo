@@ -1,0 +1,23 @@
+libFDK/src/FDK_core.lo: libFDK/src/FDK_core.cpp libFDK/include/FDK_core.h \
+ libSYS/include/FDK_audio.h libSYS/include/machine_type.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/assert.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/cdefs.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/api-level.h \
+ /private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/versioning.h \
+ libSYS/include/genericStds.h
+
+libFDK/include/FDK_core.h:
+
+libSYS/include/FDK_audio.h:
+
+libSYS/include/machine_type.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/assert.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/sys/cdefs.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/api-level.h:
+
+/private/tmp/x86_64-android-toolchain/sysroot/usr/include/android/versioning.h:
+
+libSYS/include/genericStds.h:
